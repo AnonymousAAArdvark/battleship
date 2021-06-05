@@ -52,9 +52,19 @@ const Buttons = styled.div`
     font-family: "Montserrat", sans-serif;
     padding: .7rem 1.4rem;
     border: 2px solid ${({ theme }) => theme.colors.displayBorder};
+    color: ${({ theme }) => theme.colors.displayBorder};
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
+    background-color: ${({ theme }) => theme.colors.background};
+    &:hover {
+      color: dimgray;
+      border-color: dimgray;
+    }
+    &:active {
+      color: gray;
+      border-color: gray;
+    }
   }
   
   .disabled {

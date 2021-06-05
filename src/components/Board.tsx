@@ -231,34 +231,30 @@ const Board = ({ player, game, state, loop, rotate, move, turn, init, reset }: B
 
   return (
     <BoardContainer>
-      <table className={`board-wrapper ${active}`}>
-        <tbody>
-          {game
-            .getPlayer(player)
-            .getBoard.getTiles.map((row, i) => {
-              return (
-                <tr key={i} className="board-row">
-                  {row.map((_, j) => {
-                    return (
-                      <td key={j} className="board-element">
-                        <div
-                          key={`(${i}, ${j})`}
-                          data-x={`${i}`}
-                          data-y={`${j}`}
-                          data-player={player}
-                          className="board-tile"
-                          onClick={chooseAction}
-                          onMouseMove={showValid}
-                          onMouseLeave={removeValid}
-                        />
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+       <div className={`board-wrapper ${active}`}>
+         {game
+          .getPlayer(player)
+          .getBoard.getTiles.map((row, i) => {
+            return (
+              <div key={i} className="board-row">
+                {row.map((_, j) => {
+                  return (
+                    <div
+                      key={`(${i}, ${j})`}
+                      data-x={`${i}`}
+                      data-y={`${j}`}
+                      data-player={player}
+                      className="board-tile"
+                      onClick={chooseAction}
+                      onMouseMove={showValid}
+                      onMouseLeave={removeValid}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+      </div>
       <Header>{`${game.getPlayer(player).getName} board`}</Header>
     </BoardContainer>
   )

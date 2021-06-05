@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Boards from "./components/Boards";
 import Game from "./scripts/Game";
 import { Display, DisplayWrapper, Buttons, Header, HeaderWrapper, Title } from "./components/styled_components/AppStyles";
@@ -61,7 +61,7 @@ const App = () => {
       <Buttons>
         {
           !init ? <button className="startGame" type="button" onClick={initGame}>Start Game</button>
-          : game.getTurn === 0 || game.getWinner != -1 ? <button className="startGame" type="button" onClick={restartGame}>Restart Game</button>
+          : game.getTurn === 0 || game.getWinner !== -1 ? <button className="startGame" type="button" onClick={restartGame}>Restart Game</button>
             : <button className="startGame disabled" type="button">Restart Game</button>
         }
       </Buttons>

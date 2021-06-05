@@ -5,13 +5,13 @@ const BoardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 4vh;
+  gap: 1rem;
 `;
 
 const BoardContainer = styled.div`
   display: flex;
-  padding: 0 6vh 0 6vh;
-  gap: 0.5vh;
+  padding: 0 4rem 0 4rem;
+  gap: 0.5rem;
   position: relative;
 `;
 

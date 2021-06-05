@@ -4,56 +4,65 @@ const BoardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   .board-wrapper {
     opacity: .4;
+    display: flex;
+    flex-direction: column;
     counter-reset: row column;
     font-size: 1rem;
     font-weight: 700;
 
     .board-row {
+      display: flex;
+      flex-direction: row;
       counter-increment: row;
-      
+      justify-content: flex-end;
+
       &:last-child {
-        .board-element {
+        .board-tile {
           counter-increment: column;
+          margin-bottom: 1.2rem;
 
           &::after {
+            position: absolute;
+            top: 110%;
             content: counter(column, upper-latin);
           }
         }
       }
-      
+
       &::before {
+        margin-right: .4rem;
         content: counter(row);
       }
-      
-      .board-element {
+
         .board-tile {
           position: relative;
           width: calc(1.4rem + 1vw);
           height: calc(1.4rem + 1vw);
+          margin: .1rem;
           background-color: ${({ theme }) => theme.colors.gridBackground};
           border: 2px solid ${({ theme }) => theme.colors.tile_border};
           border-radius: 2px;
         }
-        
+
         .ship-not-hit {
           background-color: ${({ theme }) => theme.colors.ship};
           cursor: pointer;
         }
-        
+
         .ship-hit {
           background-color: #c86b85;
 
-          &::after {
+          &::before {
             content: '\\f00d';
             position: absolute;
             font-family: 'Font Awesome 5 Free', sans-serif;
             font-weight: 1000;
             font-size: 15px;
             left: 50%;
-            top: 50%;
+            top: 52%;
             transform: translate(-50%, -50%);
           }
         }
@@ -61,14 +70,14 @@ const BoardContainer = styled.div`
         .ship-sunk {
           background-color: #bbbbbb;
 
-          &::after {
+          &::before {
             content: '\\f00d';
             position: absolute;
             font-family: 'Font Awesome 5 Free', sans-serif;
             font-weight: 1000;
             font-size: 15px;
             left: 50%;
-            top: 50%;
+            top: 52%;
             transform: translate(-50%, -50%);
           }
         }
@@ -76,7 +85,7 @@ const BoardContainer = styled.div`
         .missed {
           background-color: #bce6eb;
 
-          &::after {
+          &::before {
             content: '\\f111';
             position: absolute;
             font-family: 'Font Awesome 5 Free', sans-serif;
@@ -95,14 +104,14 @@ const BoardContainer = styled.div`
         .marked-origin {
           background-color: ${({ theme }) => theme.colors.marked};
 
-          &::after {
+          &::before {
             content: '\\f0e2';
             position: absolute;
             font-family: 'Font Awesome 5 Free', sans-serif;
             font-weight: 1000;
             font-size: 13px;
             left: 50%;
-            top: 50%;
+            top: 53%;
             transform: translate(-50%, -50%);
           }
         }
@@ -122,7 +131,6 @@ const BoardContainer = styled.div`
         .invalid-origin {
           background-color: ${({ theme }) => theme.colors.invalid};
         }
-      }
     }
   }
 
@@ -130,15 +138,11 @@ const BoardContainer = styled.div`
     opacity: .8;
 
     .board-row {
+      .board-tile {
 
-      .board-element {
-
-        .board-tile {
-
-          &:hover {
-            border: 2px solid #878891;
-            cursor: pointer;
-          }
+        &:hover {
+          border: 2px solid #878891;
+          cursor: pointer;
         }
       }
     }

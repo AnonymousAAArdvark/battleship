@@ -14,13 +14,13 @@ const ShipsContainer = styled.div<{ player: string }>`
     left: 95%;
   `};
   
-  @media (max-width: 1100px) {
+  @media (max-width: 1150px) {
     display: none;
   }
-  @media (max-width: 920px) {
+  @media (max-width: 1035px) {
     display: flex;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 570px) {
     display: none;
   }
 `;
